@@ -96,7 +96,7 @@ public class MainMenu extends JFrame {
                     
                     recipes.put((Long)json2.get("id"), json2.get("title").toString());
                 }
-            }
+            }   
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -105,7 +105,7 @@ public class MainMenu extends JFrame {
         list.setBackground(Color.LIGHT_GRAY);
         
         //Panel Information
-        JTextPane informationPanel = new JTextPane();
+        JTextPane informationPanel = new JTextPane();   
         informationPanel.setBounds(520,50,200,300);
         informationPanel.setBackground(Color.LIGHT_GRAY);
         informationPanel.setEditable(false);
@@ -116,9 +116,18 @@ public class MainMenu extends JFrame {
             informationPanel.setText("");
             
             //Retrieve the summary of the Selected Item
-//            for (Long x : recipes.keySet()) {
-////                If(x == )
-//            }
+            for (Long x : recipes.keySet()) {
+//                System.out.println();
+//                System.out.println(list.getSelectedValue());
+                for (Object object : recipes.values()) {
+                    if (object.equals(list.getSelectedValue())) {
+                        System.out.println(recipes.containsValue(object));
+                    }
+                }
+//                if (recipes.values().toString() == list.getSelectedValue()) {
+//                    
+//                }
+            }
             
             try {
                 URL summaryUrl = new URL("https://api.spoonacular.com/recipes//summary");
